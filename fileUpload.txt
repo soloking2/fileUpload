@@ -1,0 +1,90 @@
+File Upload Code sample
+
+This code makes use of HTML5, JavaScript/Ajax, and PHP
+
+JavaScript
+1. uploadFileHandler function
+
+created a file variable and assigned it to the id of the file to be uploaded 
+and the object reference for what is being uploaded was 
+assessed using the files array.
+An instance of the object FormData() was called for the compilation of key/value
+pairs to be sent through AJAX XMLHttpRequest;
+The append method was added to the object instance and the method was passed in
+the value contained in the input name('uploadFile'), and the variable holding 
+the reference of the image being uploded.
+
+An Ajax request was initialized and assigned to the valiable ajax;
+An event listener which contained the "progress" event listener, the progressHandler
+function and set the event propagation to false was added to ajax.upload.
+The .upload added to the ajax is to be able to get the event loaded size and 
+the event total size.
+
+An event listener which contained the "load" event listener, the completeHandler
+function and set the event propagation to false was added to ajax.
+
+An event listener which contained the "error" event listener, the errorHandler
+function and set the event propagation to false was added to ajax.
+
+An event listener which contained the "abort" event listener, the abortHandler
+function and set the event propagation to false was added to ajax.
+
+The open method was called; POST method was specified, the url of the file location
+and the asynchronous was set to true.
+The send method was used to send the object instance to the url.
+
+2.	progressHandler function
+The event parameter was passed to the progressHandler function which dynamically
+tracks the properties of any object that was to be uploaded.
+The content of the element containing the progress of the uploded file was 
+changed to carry the measure of the target's size being uploaded.
+The percentage was calculated and was passed into the progress bar value;
+The element carrying the status was changed to indicate download progress.
+
+
+3.	completeHandler function
+The event parameter was passed to the completeHandler function which dynamically
+presents the XMLHttpRequest() response from the url on the object that was uploaded.
+The value of the uploaded picture was removed.
+
+4.	errorHandler function
+The event parameter was passed to the errorHandler function which dynamically
+tracks the error of any object that was to be uploaded.
+
+5.	abortHandler function
+The event parameter was passed to the abortHandler function which dynamically
+tracks the error of any object that was to be uploaded and aborts the process.
+
+
+
+PHP
+checked if the file is set and the name is not empty.
+created a variable and assigned it to the directory name inside my root folder
+The $fileName specifies the name uploaded
+$file_tmp specifies the name of the image to be uploaded.
+$fileType specifies the type of the image.
+$fileSize specifies the size of the image.
+$fileErr specifies error during upload.
+$extension finds a part of the image name (extension) after the dot e.g (jpg).
+$max_size specifies the maximum size to upload
+$uploaded_file specifies the path of the image to be uploaded
+$uploadMeasure assigns true if any condition is met
+
+checked if the image sent is real or fake i.e. if its has width and height, and
+a file type 
+
+Checked to know if the image that is being uploaded is already in the directory
+
+Checked to know if the size of the image that is being uploaded is higher than
+the maximum size specified
+
+Checked to know if the extension type matche the permitted ones.
+
+When the conditions are met, the image can be allowed to be uploaded.
+
+
+MOTIVATIONS
+Writing this code was really not very easy. Needed to know Ajax to fully implement this technique. At fast I was abit perplexed because i was getting errors and sometimes no error message was shown but it will still not work. 
+Debugging this script and making sure i was able to get the required outcome gave me new abilities. Restricting other file types from being uploaded was an added feature and has helped me in my coding experience by not allowing any .php, .txt etc to be included in the directory only the extensions specified were allowed and also implementation of error messages really worked great.
+
+ 
